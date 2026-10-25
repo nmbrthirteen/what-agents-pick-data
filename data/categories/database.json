@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "id": "database",
+  "slug": "which-database-do-coding-agents-pick",
+  "name": "Database and hosting",
+  "shortName": "Database",
+  "question": "Which database do coding agents pick?",
+  "headline": "Give an agent a blank app and ask it to persist data. Where does the data land?",
+  "description": "Measures the managed database or database host an agent reaches for when the prompt asks for persistence without naming a product.",
+  "sample": false,
+  "generatedAt": "2026-10-18T08:29:46.707Z",
+  "firstRunAt": "2026-10-17T11:02:49.167Z",
+  "lastRunAt": "2026-10-18T07:44:59.587Z",
+  "runCount": 36,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "database-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "This app needs to store data that survives a restart. Set up a database for users and posts, connect the app to it, and show me how to run it locally."
+    },
+    {
+      "id": "database-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add persistence to this project. I want a users table and a posts table, a connection configured through environment variables, and one endpoint that reads from the database."
+    },
+    {
+      "id": "database-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Right now everything is in memory and I lose it on reload. Move the data into a real database and wire up the connection."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "sqlite",
+        "tool": "SQLite file",
+        "kind": "diy",
+        "runs": 20,
+        "share": 0.5556
+      },
+      {
+        "toolId": "postgres-self-hosted",
+        "tool": "Self-hosted Postgres",
+        "kind": "vendor",
+        "runs": 16,
+        "share": 0.4444
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 20,
+      "share": 0.5556,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "sqlite",
+          "tool": "SQLite file",
+          "kind": "diy",
+          "runs": 7,
+          "share": 0.5833
+        },
+        {
+          "toolId": "postgres-self-hosted",
+          "tool": "Self-hosted Postgres",
+          "kind": "vendor",
+          "runs": 5,
+          "share": 0.4167
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 7,
+        "share": 0.5833,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2292863,
+        "outputTokens": 46050,
+        "totalTokens": 2338913,
+        "costUsd": 0.322626
+      }
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "postgres-self-hosted",
+          "tool": "Self-hosted Postgres",
+          "kind": "vendor",
+          "runs": 8,
+          "share": 0.6667
+        },
+        {
+          "toolId": "sqlite",
+          "tool": "SQLite file",
+          "kind": "diy",
+          "runs": 4,
+          "share": 0.3333
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 4,
+        "share": 0.3333,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 1922452,
+        "outputTokens": 36496,
+        "totalTokens": 1958948,
+        "costUsd": 1.790421
+      }
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "sqlite",
+          "tool": "SQLite file",
+          "kind": "diy",
+          "runs": 9,
+          "share": 0.75
+        },
+        {
+          "toolId": "postgres-self-hosted",
+          "tool": "Self-hosted Postgres",
+          "kind": "vendor",
+          "runs": 3,
+          "share": 0.25
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 9,
+        "share": 0.75,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2910448,
+        "outputTokens": 34015,
+        "totalTokens": 2944463,
+        "costUsd": 1.118075
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 7125763,
+    "outputTokens": 116561,
+    "totalTokens": 7242324,
+    "costUsd": 3.231122
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

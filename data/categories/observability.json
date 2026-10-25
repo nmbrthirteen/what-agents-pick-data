@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "id": "observability",
+  "slug": "which-error-monitoring-tool-do-coding-agents-pick",
+  "name": "Analytics and error monitoring",
+  "shortName": "Monitoring",
+  "question": "Which error monitoring tool do coding agents pick?",
+  "headline": "When you ask to know what broke in production, which SDK gets installed?",
+  "description": "Measures the error tracking and product analytics tooling an agent installs when asked for production visibility.",
+  "sample": false,
+  "generatedAt": "2026-10-18T08:29:46.715Z",
+  "firstRunAt": "2026-10-17T11:38:23.653Z",
+  "lastRunAt": "2026-10-18T08:27:35.187Z",
+  "runCount": 36,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "observability-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I want to know when this app throws in production. Set up error reporting with stack traces and a test error I can trigger."
+    },
+    {
+      "id": "observability-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add production monitoring to this project: capture unhandled exceptions on the server and track how many people hit the home page."
+    },
+    {
+      "id": "observability-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Give this app visibility once it is live. I need crash reports and basic usage numbers."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "sentry",
+        "tool": "Sentry",
+        "kind": "vendor",
+        "runs": 21,
+        "share": 0.5833
+      },
+      {
+        "toolId": "posthog",
+        "tool": "PostHog",
+        "kind": "vendor",
+        "runs": 4,
+        "share": 0.1111
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 11,
+      "share": 0.3056,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "sentry",
+          "tool": "Sentry",
+          "kind": "vendor",
+          "runs": 5,
+          "share": 0.4167
+        },
+        {
+          "toolId": "posthog",
+          "tool": "PostHog",
+          "kind": "vendor",
+          "runs": 2,
+          "share": 0.1667
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 5,
+        "share": 0.4167,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2841224,
+        "outputTokens": 58138,
+        "totalTokens": 2899362,
+        "costUsd": 0.386911
+      }
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "sentry",
+          "tool": "Sentry",
+          "kind": "vendor",
+          "runs": 4,
+          "share": 0.3333
+        },
+        {
+          "toolId": "posthog",
+          "tool": "PostHog",
+          "kind": "vendor",
+          "runs": 2,
+          "share": 0.1667
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 6,
+        "share": 0.5,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2225837,
+        "outputTokens": 55752,
+        "totalTokens": 2281589,
+        "costUsd": 2.29618
+      }
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "sentry",
+          "tool": "Sentry",
+          "kind": "vendor",
+          "runs": 12,
+          "share": 1
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 0,
+        "share": 0,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 1649218,
+        "outputTokens": 575,
+        "totalTokens": 1649793,
+        "costUsd": 0.525824
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 6716279,
+    "outputTokens": 114465,
+    "totalTokens": 6830744,
+    "costUsd": 3.208915
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

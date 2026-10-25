@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "id": "jobs",
+  "slug": "which-background-job-queue-do-coding-agents-pick",
+  "name": "Background jobs and queues",
+  "shortName": "Jobs",
+  "question": "Which background job queue do coding agents pick?",
+  "headline": "Deferred work is where agents quietly invent their own scheduler.",
+  "description": "Measures the queue or job runner an agent introduces when asked to move slow work off the request path.",
+  "sample": false,
+  "generatedAt": "2026-10-18T08:29:46.713Z",
+  "firstRunAt": "2026-10-17T11:26:12.515Z",
+  "lastRunAt": "2026-10-18T08:15:01.674Z",
+  "runCount": 33,
+  "failedRuns": 3,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "jobs-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "This endpoint does slow work inline and times out. Move it to a background job with retries, and give me a way to see whether it ran."
+    },
+    {
+      "id": "jobs-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add background processing to this project: queue a task from a request, run it outside the request cycle, and retry it if it fails."
+    },
+    {
+      "id": "jobs-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I need deferred and scheduled work here. Set up the job runner and add one recurring task plus one on-demand task."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "hand-rolled-queue",
+        "tool": "Hand-rolled queue or cron",
+        "kind": "diy",
+        "runs": 5,
+        "share": 0.1515
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 33,
+      "share": 1,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "runs": 11,
+      "failedRuns": 0,
+      "picks": [],
+      "builtItsOwn": {
+        "runs": 11,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 3321313,
+        "outputTokens": 131620,
+        "totalTokens": 3452933,
+        "costUsd": 0.624611
+      }
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "hand-rolled-queue",
+          "tool": "Hand-rolled queue or cron",
+          "kind": "diy",
+          "runs": 3,
+          "share": 0.25
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 12,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 3069169,
+        "outputTokens": 94432,
+        "totalTokens": 3163601,
+        "costUsd": 3.369498
+      }
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "runs": 10,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "hand-rolled-queue",
+          "tool": "Hand-rolled queue or cron",
+          "kind": "diy",
+          "runs": 2,
+          "share": 0.2
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 10,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 3824839,
+        "outputTokens": 75094,
+        "totalTokens": 3899933,
+        "costUsd": 1.747156
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 10215321,
+    "outputTokens": 301146,
+    "totalTokens": 10516467,
+    "costUsd": 5.741265
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

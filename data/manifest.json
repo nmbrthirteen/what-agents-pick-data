@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:29:46.715Z",
+  "sample": false,
+  "harnessVersion": "0.1.0",
+  "mode": "live",
+  "totalRuns": 355,
+  "failedRuns": 0,
+  "budget": {
+    "capUsd": 65,
+    "spentUsd": 38.555873
+  },
+  "usage": {
+    "inputTokens": 80955137,
+    "outputTokens": 1764402,
+    "totalTokens": 82719539,
+    "costUsd": 38.555873
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "releasedAt": "2026-10-07",
+      "runs": 117,
+      "costUsd": 4.571965
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "releasedAt": "2026-09-21",
+      "runs": 120,
+      "costUsd": 22.24129
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "releasedAt": "2026-09-28",
+      "runs": 118,
+      "costUsd": 11.742618
+    }
+  ],
+  "categories": [
+    {
+      "id": "database",
+      "slug": "which-database-do-coding-agents-pick",
+      "name": "Database and hosting",
+      "shortName": "Database",
+      "question": "Which database do coding agents pick?",
+      "headline": "Give an agent a blank app and ask it to persist data. Where does the data land?",
+      "runCount": 36,
+      "sample": false,
+      "topPick": {
+        "toolId": "sqlite",
+        "tool": "SQLite file",
+        "kind": "diy",
+        "runs": 20,
+        "share": 0.5556
+      },
+      "runnerUp": {
+        "toolId": "postgres-self-hosted",
+        "tool": "Self-hosted Postgres",
+        "kind": "vendor",
+        "runs": 16,
+        "share": 0.4444
+      },
+      "builtItsOwnShare": 0.5556,
+      "lastRunAt": "2026-10-18T07:44:59.587Z"
+    },
+    {
+      "id": "orm",
+      "slug": "which-orm-do-coding-agents-pick",
+      "name": "ORM and query layer",
+      "shortName": "ORM",
+      "question": "Which ORM do coding agents pick?",
+      "headline": "Nobody said Prisma. Nobody said SQLAlchemy. What does the agent type anyway?",
+      "runCount": 36,
+      "sample": false,
+      "topPick": {
+        "toolId": "sqlalchemy",
+        "tool": "SQLAlchemy",
+        "kind": "vendor",
+        "runs": 18,
+        "share": 0.5
+      },
+      "runnerUp": {
+        "toolId": "drizzle",
+        "tool": "Drizzle ORM",
+        "kind": "vendor",
+        "runs": 12,
+        "share": 0.3333
+      },
+      "builtItsOwnShare": 0.1389,
+      "lastRunAt": "2026-10-18T07:49:02.180Z"
+    },
+    {
+      "id": "auth",
+      "slug": "which-auth-provider-do-coding-agents-pick",
+      "name": "Authentication",
+      "shortName": "Auth",
+      "question": "Which auth provider do coding agents pick?",
+      "headline": "Auth is the category where agents are most likely to hand-roll a JWT and call it done.",
+      "runCount": 35,
+      "sample": false,
+      "topPick": {
+        "toolId": "hand-rolled-jwt",
+        "tool": "Hand-rolled JWT or sessions",
+        "kind": "diy",
+        "runs": 32,
+        "share": 0.9143
+      },
+      "runnerUp": null,
+      "builtItsOwnShare": 1,
+      "lastRunAt": "2026-10-18T07:56:12.376Z"
+    },
+    {
+      "id": "deployment",
+      "slug": "which-deployment-platform-do-coding-agents-pick",
+      "name": "Deployment",
+      "shortName": "Deployment",
+      "question": "Which deployment platform do coding agents pick?",
+      "headline": "Asked to make a project shippable, which platform's config file appears in the diff?",
+      "runCount": 36,
+      "sample": false,
+      "topPick": {
+        "toolId": "plain-docker",
+        "tool": "Plain Docker",
+        "kind": "diy",
+        "runs": 21,
+        "share": 0.5833
+      },
+      "runnerUp": {
+        "toolId": "fly",
+        "tool": "Fly.io",
+        "kind": "vendor",
+        "runs": 8,
+        "share": 0.2222
+      },
+      "builtItsOwnShare": 0.5833,
+      "lastRunAt": "2026-10-18T08:00:08.884Z"
+    },
+    {
+      "id": "email",
+      "slug": "which-email-api-do-coding-agents-pick",
+      "name": "Email sending",
+      "shortName": "Email",
+      "question": "Which email API do coding agents pick?",
+      "headline": "Transactional email is a commodity. Agents still have a favourite.",
+      "runCount": 36,
+      "sample": false,
+      "topPick": {
+        "toolId": "raw-smtp",
+        "tool": "Raw SMTP",
+        "kind": "diy",
+        "runs": 24,
+        "share": 0.6667
+      },
+      "runnerUp": {
+        "toolId": "resend",
+        "tool": "Resend",
+        "kind": "vendor",
+        "runs": 11,
+        "share": 0.3056
+      },
+      "builtItsOwnShare": 0.6667,
+      "lastRunAt": "2026-10-18T08:04:25.107Z"
+    },
+    {
+      "id": "payments",
+      "slug": "which-payments-provider-do-coding-agents-pick",
+      "name": "Payments",
+      "shortName": "Payments",
+      "question": "Which payments provider do coding agents pick?",
+      "headline": "The most predictable category on the board, and the most expensive one to be wrong about.",
+      "runCount": 35,
+      "sample": false,
+      "topPick": {
+        "toolId": "stripe",
+        "tool": "Stripe",
+        "kind": "vendor",
+        "runs": 35,
+        "share": 1
+      },
+      "runnerUp": null,
+      "builtItsOwnShare": 0,
+      "lastRunAt": "2026-10-18T08:09:27.640Z"
+    },
+    {
+      "id": "jobs",
+      "slug": "which-background-job-queue-do-coding-agents-pick",
+      "name": "Background jobs and queues",
+      "shortName": "Jobs",
+      "question": "Which background job queue do coding agents pick?",
+      "headline": "Deferred work is where agents quietly invent their own scheduler.",
+      "runCount": 33,
+      "sample": false,
+      "topPick": {
+        "toolId": "hand-rolled-queue",
+        "tool": "Hand-rolled queue or cron",
+        "kind": "diy",
+        "runs": 5,
+        "share": 0.1515
+      },
+      "runnerUp": null,
+      "builtItsOwnShare": 1,
+      "lastRunAt": "2026-10-18T08:15:01.674Z"
+    },
+    {
+      "id": "caching",
+      "slug": "which-cache-do-coding-agents-pick",
+      "name": "Caching",
+      "shortName": "Caching",
+      "question": "Which cache do coding agents pick?",
+      "headline": "Does the agent add a cache service, or a Map at module scope?",
+      "runCount": 36,
+      "sample": false,
+      "topPick": null,
+      "runnerUp": null,
+      "builtItsOwnShare": 1,
+      "lastRunAt": "2026-10-18T08:19:22.038Z"
+    },
+    {
+      "id": "storage",
+      "slug": "which-file-storage-do-coding-agents-pick",
+      "name": "File storage",
+      "shortName": "Storage",
+      "question": "Which file storage do coding agents pick?",
+      "headline": "Upload a file and watch where the agent decides bytes belong.",
+      "runCount": 36,
+      "sample": false,
+      "topPick": {
+        "toolId": "local-disk",
+        "tool": "Local disk",
+        "kind": "diy",
+        "runs": 34,
+        "share": 0.9444
+      },
+      "runnerUp": {
+        "toolId": "s3",
+        "tool": "Amazon S3",
+        "kind": "vendor",
+        "runs": 2,
+        "share": 0.0556
+      },
+      "builtItsOwnShare": 0.9444,
+      "lastRunAt": "2026-10-18T08:23:54.175Z"
+    },
+    {
+      "id": "observability",
+      "slug": "which-error-monitoring-tool-do-coding-agents-pick",
+      "name": "Analytics and error monitoring",
+      "shortName": "Monitoring",
+      "question": "Which error monitoring tool do coding agents pick?",
+      "headline": "When you ask to know what broke in production, which SDK gets installed?",
+      "runCount": 36,
+      "sample": false,
+      "topPick": {
+        "toolId": "sentry",
+        "tool": "Sentry",
+        "kind": "vendor",
+        "runs": 21,
+        "share": 0.5833
+      },
+      "runnerUp": {
+        "toolId": "posthog",
+        "tool": "PostHog",
+        "kind": "vendor",
+        "runs": 4,
+        "share": 0.1111
+      },
+      "builtItsOwnShare": 0.3056,
+      "lastRunAt": "2026-10-18T08:27:35.187Z"
+    }
+  ]
+}

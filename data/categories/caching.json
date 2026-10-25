@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "id": "caching",
+  "slug": "which-cache-do-coding-agents-pick",
+  "name": "Caching",
+  "shortName": "Caching",
+  "question": "Which cache do coding agents pick?",
+  "headline": "Does the agent add a cache service, or a Map at module scope?",
+  "description": "Measures the caching layer an agent adds when asked to stop recomputing an expensive result on every request.",
+  "sample": false,
+  "generatedAt": "2026-10-18T08:29:46.714Z",
+  "firstRunAt": "2026-10-17T11:31:12.134Z",
+  "lastRunAt": "2026-10-18T08:19:22.038Z",
+  "runCount": 36,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "caching-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "This route recomputes an expensive result on every request. Add caching with a sensible expiry and a way to invalidate it."
+    },
+    {
+      "id": "caching-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add a cache layer to this project so repeated reads are cheap. It should survive a process restart."
+    },
+    {
+      "id": "caching-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Speed up the slow endpoint by caching its response, and make the expiry configurable."
+    }
+  ],
+  "overall": {
+    "picks": [],
+    "builtItsOwn": {
+      "runs": 36,
+      "share": 1,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [],
+      "builtItsOwn": {
+        "runs": 12,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 3216845,
+        "outputTokens": 89275,
+        "totalTokens": 3306120,
+        "costUsd": 0.493415
+      }
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [],
+      "builtItsOwn": {
+        "runs": 12,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2077702,
+        "outputTokens": 51911,
+        "totalTokens": 2129613,
+        "costUsd": 2.048986
+      }
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [],
+      "builtItsOwn": {
+        "runs": 12,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2782186,
+        "outputTokens": 45431,
+        "totalTokens": 2827617,
+        "costUsd": 1.159559
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 8076733,
+    "outputTokens": 186617,
+    "totalTokens": 8263350,
+    "costUsd": 3.70196
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

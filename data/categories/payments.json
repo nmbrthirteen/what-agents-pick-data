@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "id": "payments",
+  "slug": "which-payments-provider-do-coding-agents-pick",
+  "name": "Payments",
+  "shortName": "Payments",
+  "question": "Which payments provider do coding agents pick?",
+  "headline": "The most predictable category on the board, and the most expensive one to be wrong about.",
+  "description": "Measures the billing provider an agent integrates when asked to charge for a subscription without being told which processor to use.",
+  "sample": false,
+  "generatedAt": "2026-10-18T08:29:46.713Z",
+  "firstRunAt": "2026-10-17T11:21:55.023Z",
+  "lastRunAt": "2026-10-18T08:09:27.640Z",
+  "runCount": 35,
+  "failedRuns": 1,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "payments-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add paid subscriptions to this app. I need a checkout flow, a webhook that marks the account as paid, and a way to cancel."
+    },
+    {
+      "id": "payments-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I want to charge users for a monthly plan. Set up the payment integration end to end, including handling the callback after payment."
+    },
+    {
+      "id": "payments-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Wire up billing for this project so a visitor can buy a plan and the backend learns about it."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "stripe",
+        "tool": "Stripe",
+        "kind": "vendor",
+        "runs": 35,
+        "share": 1
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 0,
+      "share": 0,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "runs": 11,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "stripe",
+          "tool": "Stripe",
+          "kind": "vendor",
+          "runs": 11,
+          "share": 1
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 0,
+        "share": 0,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2633121,
+        "outputTokens": 52729,
+        "totalTokens": 2685850,
+        "costUsd": 0.37246
+      }
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "stripe",
+          "tool": "Stripe",
+          "kind": "vendor",
+          "runs": 12,
+          "share": 1
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 0,
+        "share": 0,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 1463524,
+        "outputTokens": 888,
+        "totalTokens": 1464412,
+        "costUsd": 0.872952
+      }
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "stripe",
+          "tool": "Stripe",
+          "kind": "vendor",
+          "runs": 12,
+          "share": 1
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 0,
+        "share": 0,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2397779,
+        "outputTokens": 18441,
+        "totalTokens": 2416220,
+        "costUsd": 0.867789
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 6494424,
+    "outputTokens": 72058,
+    "totalTokens": 6566482,
+    "costUsd": 2.113201
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

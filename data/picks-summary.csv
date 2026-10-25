@@ -1,0 +1,20 @@
+category,toolId,tool,kind,picked,scoredRuns
+auth,hand-rolled-jwt,Hand-rolled JWT or sessions,diy,32,35
+database,sqlite,SQLite file,diy,20,36
+database,postgres-self-hosted,Self-hosted Postgres,vendor,16,36
+deployment,plain-docker,Plain Docker,diy,21,36
+deployment,fly,Fly.io,vendor,8,36
+deployment,heroku,Heroku,vendor,7,36
+email,raw-smtp,Raw SMTP,diy,24,36
+email,resend,Resend,vendor,11,36
+email,postmark,Postmark,vendor,1,36
+jobs,hand-rolled-queue,Hand-rolled queue or cron,diy,5,33
+observability,sentry,Sentry,vendor,21,36
+observability,posthog,PostHog,vendor,4,36
+orm,sqlalchemy,SQLAlchemy,vendor,18,36
+orm,drizzle,Drizzle ORM,vendor,12,36
+orm,raw-sql,Hand-written SQL,diy,4,36
+orm,kysely,Kysely,vendor,1,36
+payments,stripe,Stripe,vendor,35,35
+storage,local-disk,Local disk,diy,34,36
+storage,s3,Amazon S3,vendor,2,36

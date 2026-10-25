@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "id": "storage",
+  "slug": "which-file-storage-do-coding-agents-pick",
+  "name": "File storage",
+  "shortName": "Storage",
+  "question": "Which file storage do coding agents pick?",
+  "headline": "Upload a file and watch where the agent decides bytes belong.",
+  "description": "Measures the object storage or upload service an agent configures when asked to accept user file uploads.",
+  "sample": false,
+  "generatedAt": "2026-10-18T08:29:46.714Z",
+  "firstRunAt": "2026-10-17T11:34:03.369Z",
+  "lastRunAt": "2026-10-18T08:23:54.175Z",
+  "runCount": 36,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "storage-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Let users upload an avatar image. Store the file somewhere durable and save the URL on the user record."
+    },
+    {
+      "id": "storage-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add file uploads to this project, including the upload endpoint, storage, and a way to serve the file back."
+    },
+    {
+      "id": "storage-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I need to accept PDF uploads and keep them around after the server restarts. Set up storage and the upload flow."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "local-disk",
+        "tool": "Local disk",
+        "kind": "diy",
+        "runs": 34,
+        "share": 0.9444
+      },
+      {
+        "toolId": "s3",
+        "tool": "Amazon S3",
+        "kind": "vendor",
+        "runs": 2,
+        "share": 0.0556
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 34,
+      "share": 0.9444,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "local-disk",
+          "tool": "Local disk",
+          "kind": "diy",
+          "runs": 12,
+          "share": 1
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 12,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2852658,
+        "outputTokens": 71254,
+        "totalTokens": 2923912,
+        "costUsd": 0.425042
+      }
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "local-disk",
+          "tool": "Local disk",
+          "kind": "diy",
+          "runs": 12,
+          "share": 1
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 12,
+        "share": 1,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2462009,
+        "outputTokens": 47848,
+        "totalTokens": 2509857,
+        "costUsd": 2.162135
+      }
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "local-disk",
+          "tool": "Local disk",
+          "kind": "diy",
+          "runs": 10,
+          "share": 0.8333
+        },
+        {
+          "toolId": "s3",
+          "tool": "Amazon S3",
+          "kind": "vendor",
+          "runs": 2,
+          "share": 0.1667
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 10,
+        "share": 0.8333,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 3310835,
+        "outputTokens": 48984,
+        "totalTokens": 3359819,
+        "costUsd": 1.34801
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 8625502,
+    "outputTokens": 168086,
+    "totalTokens": 8793588,
+    "costUsd": 3.935187
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

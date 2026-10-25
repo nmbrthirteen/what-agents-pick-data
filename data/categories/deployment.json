@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "id": "deployment",
+  "slug": "which-deployment-platform-do-coding-agents-pick",
+  "name": "Deployment",
+  "shortName": "Deployment",
+  "question": "Which deployment platform do coding agents pick?",
+  "headline": "Asked to make a project shippable, which platform's config file appears in the diff?",
+  "description": "Measures the hosting target an agent configures when told to make the project deployable, detected from config files and platform SDKs.",
+  "sample": false,
+  "generatedAt": "2026-10-18T08:29:46.713Z",
+  "firstRunAt": "2026-10-17T11:15:01.183Z",
+  "lastRunAt": "2026-10-18T08:00:08.884Z",
+  "runCount": 36,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "deployment-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Get this project ready to deploy. Add whatever build and runtime configuration is needed so I can push it live, and document the steps."
+    },
+    {
+      "id": "deployment-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I want this running on the public internet. Set up the deployment configuration and tell me what to run to ship it."
+    },
+    {
+      "id": "deployment-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Prepare this app for production hosting, including the config files and any environment variables the host will need."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "plain-docker",
+        "tool": "Plain Docker",
+        "kind": "diy",
+        "runs": 21,
+        "share": 0.5833
+      },
+      {
+        "toolId": "fly",
+        "tool": "Fly.io",
+        "kind": "vendor",
+        "runs": 8,
+        "share": 0.2222
+      },
+      {
+        "toolId": "heroku",
+        "tool": "Heroku",
+        "kind": "vendor",
+        "runs": 7,
+        "share": 0.1944
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 21,
+      "share": 0.5833,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "claude-code:claude-haiku-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-haiku-5-5",
+      "modelLabel": "Haiku 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "plain-docker",
+          "tool": "Plain Docker",
+          "kind": "diy",
+          "runs": 10,
+          "share": 0.8333
+        },
+        {
+          "toolId": "heroku",
+          "tool": "Heroku",
+          "kind": "vendor",
+          "runs": 2,
+          "share": 0.1667
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 10,
+        "share": 0.8333,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2799526,
+        "outputTokens": 85970,
+        "totalTokens": 2885496,
+        "costUsd": 0.453243
+      }
+    },
+    {
+      "key": "claude-code:claude-opus-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-opus-5-5",
+      "modelLabel": "Opus 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "fly",
+          "tool": "Fly.io",
+          "kind": "vendor",
+          "runs": 4,
+          "share": 0.3333
+        },
+        {
+          "toolId": "heroku",
+          "tool": "Heroku",
+          "kind": "vendor",
+          "runs": 4,
+          "share": 0.3333
+        },
+        {
+          "toolId": "plain-docker",
+          "tool": "Plain Docker",
+          "kind": "diy",
+          "runs": 4,
+          "share": 0.3333
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 4,
+        "share": 0.3333,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 2289245,
+        "outputTokens": 55687,
+        "totalTokens": 2344932,
+        "costUsd": 2.204383
+      }
+    },
+    {
+      "key": "claude-code:claude-sonnet-5-5",
+      "agent": "claude-code",
+      "agentLabel": "Claude Code",
+      "model": "claude-sonnet-5-5",
+      "modelLabel": "Sonnet 5.5",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "plain-docker",
+          "tool": "Plain Docker",
+          "kind": "diy",
+          "runs": 7,
+          "share": 0.5833
+        },
+        {
+          "toolId": "fly",
+          "tool": "Fly.io",
+          "kind": "vendor",
+          "runs": 4,
+          "share": 0.3333
+        },
+        {
+          "toolId": "heroku",
+          "tool": "Heroku",
+          "kind": "vendor",
+          "runs": 1,
+          "share": 0.0833
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 7,
+        "share": 0.5833,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 3238076,
+        "outputTokens": 49221,
+        "totalTokens": 3287297,
+        "costUsd": 1.274024
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 8326847,
+    "outputTokens": 190878,
+    "totalTokens": 8517725,
+    "costUsd": 3.93165
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}
