@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "id": "deployment",
+  "slug": "which-deployment-platform-do-coding-agents-pick",
+  "name": "Deployment",
+  "shortName": "Deployment",
+  "question": "Which deployment platform do coding agents pick?",
+  "headline": "Asked to make a project shippable, which platform's config file appears in the diff?",
+  "description": "Measures the hosting target an agent configures when told to make the project deployable, detected from config files and platform SDKs.",
+  "sample": false,
+  "generatedAt": "2026-10-27T16:08:37.531Z",
+  "firstRunAt": "2026-10-27T14:59:32.041Z",
+  "lastRunAt": "2026-10-27T16:07:34.513Z",
+  "runCount": 12,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "deployment-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Get this project ready to deploy. Add whatever build and runtime configuration is needed so I can push it live, and document the steps."
+    },
+    {
+      "id": "deployment-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I want this running on the public internet. Set up the deployment configuration and tell me what to run to ship it."
+    },
+    {
+      "id": "deployment-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Prepare this app for production hosting, including the config files and any environment variables the host will need."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "plain-docker",
+        "tool": "Plain Docker",
+        "kind": "diy",
+        "runs": 5,
+        "share": 0.4167
+      },
+      {
+        "toolId": "heroku",
+        "tool": "Heroku",
+        "kind": "vendor",
+        "runs": 4,
+        "share": 0.3333
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 8,
+      "share": 0.6667,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "opencode:glm-5.3-flash-free",
+      "agent": "opencode",
+      "agentLabel": "OpenCode",
+      "model": "opencode/glm-5.3-flash-free",
+      "modelLabel": "GLM 5.3 Flash",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "plain-docker",
+          "tool": "Plain Docker",
+          "kind": "diy",
+          "runs": 5,
+          "share": 0.4167
+        },
+        {
+          "toolId": "heroku",
+          "tool": "Heroku",
+          "kind": "vendor",
+          "runs": 4,
+          "share": 0.3333
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 8,
+        "share": 0.6667,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 1080304,
+        "outputTokens": 35018,
+        "totalTokens": 1115322,
+        "costUsd": 0
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 1080304,
+    "outputTokens": 35018,
+    "totalTokens": 1115322,
+    "costUsd": 0
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

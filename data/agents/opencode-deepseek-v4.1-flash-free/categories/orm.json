@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "id": "orm",
+  "slug": "which-orm-do-coding-agents-pick",
+  "name": "ORM and query layer",
+  "shortName": "ORM",
+  "question": "Which ORM do coding agents pick?",
+  "headline": "Nobody said Prisma. Nobody said SQLAlchemy. What does the agent type anyway?",
+  "description": "Measures the ORM, query builder, or hand-written SQL layer an agent chooses when asked for typed models and migrations.",
+  "sample": false,
+  "generatedAt": "2026-10-27T13:38:58.052Z",
+  "firstRunAt": "2026-10-27T12:43:07.431Z",
+  "lastRunAt": "2026-10-27T13:19:50.721Z",
+  "runCount": 12,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "orm-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add a data access layer for users and posts. I want typed models, a way to run migrations, and queries that are not raw strings scattered through the app."
+    },
+    {
+      "id": "orm-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Set up schema definitions for a users table and a posts table with a foreign key between them, plus migration tooling so I can evolve the schema later."
+    },
+    {
+      "id": "orm-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I need models and queries for this project. Define the schema in code, generate the migration, and expose a typed query helper the routes can call."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "sqlalchemy",
+        "tool": "SQLAlchemy",
+        "kind": "vendor",
+        "runs": 6,
+        "share": 0.5
+      },
+      {
+        "toolId": "drizzle",
+        "tool": "Drizzle ORM",
+        "kind": "vendor",
+        "runs": 2,
+        "share": 0.1667
+      },
+      {
+        "toolId": "prisma",
+        "tool": "Prisma",
+        "kind": "vendor",
+        "runs": 2,
+        "share": 0.1667
+      },
+      {
+        "toolId": "raw-sql",
+        "tool": "Hand-written SQL",
+        "kind": "diy",
+        "runs": 1,
+        "share": 0.0833
+      },
+      {
+        "toolId": "kysely",
+        "tool": "Kysely",
+        "kind": "vendor",
+        "runs": 1,
+        "share": 0.0833
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 1,
+      "share": 0.0833,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "opencode:deepseek-v4.1-flash-free",
+      "agent": "opencode",
+      "agentLabel": "OpenCode",
+      "model": "opencode/deepseek-v4.1-flash-free",
+      "modelLabel": "DeepSeek V4.1 Flash",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "sqlalchemy",
+          "tool": "SQLAlchemy",
+          "kind": "vendor",
+          "runs": 6,
+          "share": 0.5
+        },
+        {
+          "toolId": "drizzle",
+          "tool": "Drizzle ORM",
+          "kind": "vendor",
+          "runs": 2,
+          "share": 0.1667
+        },
+        {
+          "toolId": "prisma",
+          "tool": "Prisma",
+          "kind": "vendor",
+          "runs": 2,
+          "share": 0.1667
+        },
+        {
+          "toolId": "raw-sql",
+          "tool": "Hand-written SQL",
+          "kind": "diy",
+          "runs": 1,
+          "share": 0.0833
+        },
+        {
+          "toolId": "kysely",
+          "tool": "Kysely",
+          "kind": "vendor",
+          "runs": 1,
+          "share": 0.0833
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 1,
+        "share": 0.0833,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 870872,
+        "outputTokens": 80926,
+        "totalTokens": 951798,
+        "costUsd": 0
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 870872,
+    "outputTokens": 80926,
+    "totalTokens": 951798,
+    "costUsd": 0
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}

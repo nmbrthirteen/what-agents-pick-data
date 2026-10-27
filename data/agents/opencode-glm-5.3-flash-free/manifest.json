@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-27T16:08:37.531Z",
+  "sample": false,
+  "harnessVersion": "0.1.0",
+  "mode": "live",
+  "totalRuns": 35,
+  "failedRuns": 0,
+  "budget": {
+    "capUsd": 0.01,
+    "spentUsd": 0
+  },
+  "usage": {
+    "inputTokens": 2344571,
+    "outputTokens": 74831,
+    "totalTokens": 2419402,
+    "costUsd": 0
+  },
+  "agents": [
+    {
+      "key": "opencode:glm-5.3-flash-free",
+      "agent": "opencode",
+      "agentLabel": "OpenCode",
+      "model": "opencode/glm-5.3-flash-free",
+      "modelLabel": "GLM 5.3 Flash",
+      "effort": "default",
+      "runs": 35,
+      "costUsd": 0
+    }
+  ],
+  "categories": [
+    {
+      "id": "email",
+      "slug": "which-email-api-do-coding-agents-pick",
+      "name": "Email sending",
+      "shortName": "Email",
+      "question": "Which email API do coding agents pick?",
+      "headline": "Transactional email is a commodity. Agents still have a favourite.",
+      "runCount": 12,
+      "sample": false,
+      "topPick": {
+        "toolId": "raw-smtp",
+        "tool": "Raw SMTP",
+        "kind": "diy",
+        "runs": 9,
+        "share": 0.75
+      },
+      "runnerUp": {
+        "toolId": "resend",
+        "tool": "Resend",
+        "kind": "vendor",
+        "runs": 2,
+        "share": 0.1667
+      },
+      "builtItsOwnShare": 0.75,
+      "lastRunAt": "2026-10-27T15:15:18.193Z"
+    },
+    {
+      "id": "orm",
+      "slug": "which-orm-do-coding-agents-pick",
+      "name": "ORM and query layer",
+      "shortName": "ORM",
+      "question": "Which ORM do coding agents pick?",
+      "headline": "Nobody said Prisma. Nobody said SQLAlchemy. What does the agent type anyway?",
+      "runCount": 11,
+      "sample": false,
+      "topPick": {
+        "toolId": "drizzle",
+        "tool": "Drizzle ORM",
+        "kind": "vendor",
+        "runs": 5,
+        "share": 0.4545
+      },
+      "runnerUp": {
+        "toolId": "sqlalchemy",
+        "tool": "SQLAlchemy",
+        "kind": "vendor",
+        "runs": 4,
+        "share": 0.3636
+      },
+      "builtItsOwnShare": 0.0909,
+      "lastRunAt": "2026-10-27T16:06:01.118Z"
+    },
+    {
+      "id": "deployment",
+      "slug": "which-deployment-platform-do-coding-agents-pick",
+      "name": "Deployment",
+      "shortName": "Deployment",
+      "question": "Which deployment platform do coding agents pick?",
+      "headline": "Asked to make a project shippable, which platform's config file appears in the diff?",
+      "runCount": 12,
+      "sample": false,
+      "topPick": {
+        "toolId": "plain-docker",
+        "tool": "Plain Docker",
+        "kind": "diy",
+        "runs": 5,
+        "share": 0.4167
+      },
+      "runnerUp": {
+        "toolId": "heroku",
+        "tool": "Heroku",
+        "kind": "vendor",
+        "runs": 4,
+        "share": 0.3333
+      },
+      "builtItsOwnShare": 0.6667,
+      "lastRunAt": "2026-10-27T16:07:34.513Z"
+    }
+  ]
+}

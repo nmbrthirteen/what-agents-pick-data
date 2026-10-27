@@ -29,6 +29,21 @@ counted from `data/categories/*.json`, all models pooled:
 
 the live numbers and per model splits are on [whatagentspick.com](https://whatagentspick.com).
 
+## other agents (data/agents)
+
+72 more runs, kept apart from `data/runs.json` so the Claude numbers above don't move. OpenCode 1.19.4 on two free tier models, Oct 27, 2026:
+
+| folder | model | runs | scored |
+| --- | --- | --- | --- |
+| `data/agents/opencode-deepseek-v4.1-flash-free/` | DeepSeek V4.1 Flash | 36 | 34 |
+| `data/agents/opencode-glm-5.3-flash-free/` | GLM 5.3 Flash | 36 | 35 |
+
+- 3 categories only: email, orm, deployment. same 2 starters, same 3 prompts, 2 repeats, so 6 runs per model per stack per category (Claude has 18)
+- same harness, stop rules and detector as the Claude runs. step cap 12, so these are first instinct runs
+- `results.jsonl` is one run per line, same fields as `runs.json` plus `steps`. `categories/*.json` and `manifest.json` are the per model reports
+- `data/agents/runs.csv` is both models flattened, one row per run
+- side by side with Claude: [whatagentspick.com/claude-vs-deepseek-vs-glm](https://whatagentspick.com/claude-vs-deepseek-vs-glm/)
+
 ## how a pick is decided
 
 a run counts as a pick for a tool when the diff adds that tool's package, import or config file. a run is scored when it didn't error and the agent actually attempted the task (`scored` in the csv). if the agent only named a tool in its final message without installing it, that shows up in `statedTools`, not `toolId`. `builtItsOwn` is true when no third party package for the category was added.
@@ -43,7 +58,7 @@ full method: [whatagentspick.com/methodology](https://whatagentspick.com/methodo
 
 ## limits
 
-- one agent so far (Claude Code). 3 models, 2 stacks, 2 repeats per cell, so per cell counts are small
+- one agent in `data/` (Claude Code), plus a small free model slice in `data/agents/`. 3 Claude models, 2 stacks, 2 repeats per cell, so per cell counts are small
 - starter repos are tiny and hint free on purpose. real projects with an existing `.env` or lockfile will push agents elsewhere
 - one snapshot in time. models change and so do their defaults
 

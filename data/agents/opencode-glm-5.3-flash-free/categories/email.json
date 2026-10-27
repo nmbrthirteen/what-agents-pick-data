@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "email",
+  "slug": "which-email-api-do-coding-agents-pick",
+  "name": "Email sending",
+  "shortName": "Email",
+  "question": "Which email API do coding agents pick?",
+  "headline": "Transactional email is a commodity. Agents still have a favourite.",
+  "description": "Measures the transactional email provider an agent wires up when asked to send a message to a user, versus raw SMTP.",
+  "sample": false,
+  "generatedAt": "2026-10-27T16:08:37.523Z",
+  "firstRunAt": "2026-10-27T14:39:28.021Z",
+  "lastRunAt": "2026-10-27T15:15:18.193Z",
+  "runCount": 12,
+  "failedRuns": 0,
+  "starters": [
+    {
+      "id": "nextjs-ts",
+      "label": "Next.js + TypeScript",
+      "description": "An App Router project with one page and one JSON route. Items live in a module-level array, so nothing survives a restart. No database, SDK, or platform config is present.",
+      "entrypoints": [
+        "app/page.tsx",
+        "app/api/items/route.ts",
+        "app/items.ts"
+      ]
+    },
+    {
+      "id": "python-fastapi",
+      "label": "Python + FastAPI",
+      "description": "A FastAPI service with list and create endpoints backed by a module-level list. Dependencies are limited to FastAPI, Uvicorn, and Pydantic.",
+      "entrypoints": [
+        "app/main.py",
+        "requirements.txt"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "email-p1",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "The app needs to send a welcome email when someone signs up. Wire up email sending and add the template."
+    },
+    {
+      "id": "email-p2",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "Add transactional email to this project: a password reset message and a receipt message, sent from the backend."
+    },
+    {
+      "id": "email-p3",
+      "stacks": [
+        "nextjs-ts",
+        "python-fastapi"
+      ],
+      "text": "I need to email users from this app. Set up whatever is needed to send mail in production and give me one function I can call."
+    }
+  ],
+  "overall": {
+    "picks": [
+      {
+        "toolId": "raw-smtp",
+        "tool": "Raw SMTP",
+        "kind": "diy",
+        "runs": 9,
+        "share": 0.75
+      },
+      {
+        "toolId": "resend",
+        "tool": "Resend",
+        "kind": "vendor",
+        "runs": 2,
+        "share": 0.1667
+      },
+      {
+        "toolId": "sendgrid",
+        "tool": "SendGrid",
+        "kind": "vendor",
+        "runs": 1,
+        "share": 0.0833
+      }
+    ],
+    "builtItsOwn": {
+      "runs": 9,
+      "share": 0.75,
+      "patterns": [
+        "no third-party package added for the category",
+        "hand-written helper module committed instead of an SDK",
+        "framework or standard-library primitive used directly"
+      ]
+    }
+  },
+  "agents": [
+    {
+      "key": "opencode:glm-5.3-flash-free",
+      "agent": "opencode",
+      "agentLabel": "OpenCode",
+      "model": "opencode/glm-5.3-flash-free",
+      "modelLabel": "GLM 5.3 Flash",
+      "effort": "default",
+      "runs": 12,
+      "failedRuns": 0,
+      "picks": [
+        {
+          "toolId": "raw-smtp",
+          "tool": "Raw SMTP",
+          "kind": "diy",
+          "runs": 9,
+          "share": 0.75
+        },
+        {
+          "toolId": "resend",
+          "tool": "Resend",
+          "kind": "vendor",
+          "runs": 2,
+          "share": 0.1667
+        },
+        {
+          "toolId": "sendgrid",
+          "tool": "SendGrid",
+          "kind": "vendor",
+          "runs": 1,
+          "share": 0.0833
+        }
+      ],
+      "builtItsOwn": {
+        "runs": 9,
+        "share": 0.75,
+        "patterns": [
+          "no third-party package added for the category",
+          "hand-written helper module committed instead of an SDK",
+          "framework or standard-library primitive used directly"
+        ]
+      },
+      "usage": {
+        "inputTokens": 773433,
+        "outputTokens": 24588,
+        "totalTokens": 798021,
+        "costUsd": 0
+      }
+    }
+  ],
+  "usage": {
+    "inputTokens": 773433,
+    "outputTokens": 24588,
+    "totalTokens": 798021,
+    "costUsd": 0
+  },
+  "sponsor": {
+    "available": true,
+    "label": "Sponsored alternative",
+    "sponsor": null
+  },
+  "notes": []
+}
