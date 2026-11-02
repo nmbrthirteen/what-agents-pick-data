@@ -1,0 +1,272 @@
+[
+  {
+    "categoryId": "database",
+    "promptId": "database-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "This app needs to store data that survives a restart. Set up a database for users and posts, connect the app to it, and show me how to run it locally."
+  },
+  {
+    "categoryId": "database",
+    "promptId": "database-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add persistence to this project. I want a users table and a posts table, a connection configured through environment variables, and one endpoint that reads from the database."
+  },
+  {
+    "categoryId": "database",
+    "promptId": "database-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Right now everything is in memory and I lose it on reload. Move the data into a real database and wire up the connection."
+  },
+  {
+    "categoryId": "orm",
+    "promptId": "orm-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add a data access layer for users and posts. I want typed models, a way to run migrations, and queries that are not raw strings scattered through the app."
+  },
+  {
+    "categoryId": "orm",
+    "promptId": "orm-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Set up schema definitions for a users table and a posts table with a foreign key between them, plus migration tooling so I can evolve the schema later."
+  },
+  {
+    "categoryId": "orm",
+    "promptId": "orm-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I need models and queries for this project. Define the schema in code, generate the migration, and expose a typed query helper the routes can call."
+  },
+  {
+    "categoryId": "auth",
+    "promptId": "auth-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add sign up and sign in to this app. Users should be able to create an account, log in, log out, and hit a route that only works when they are logged in."
+  },
+  {
+    "categoryId": "auth",
+    "promptId": "auth-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I need authentication and sessions here. Protect the dashboard route so anonymous visitors are redirected, and keep the user signed in across reloads."
+  },
+  {
+    "categoryId": "auth",
+    "promptId": "auth-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Set up user accounts for this project, including login, logout, and a way to read the current user on the server."
+  },
+  {
+    "categoryId": "deployment",
+    "promptId": "deployment-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Get this project ready to deploy. Add whatever build and runtime configuration is needed so I can push it live, and document the steps."
+  },
+  {
+    "categoryId": "deployment",
+    "promptId": "deployment-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I want this running on the public internet. Set up the deployment configuration and tell me what to run to ship it."
+  },
+  {
+    "categoryId": "deployment",
+    "promptId": "deployment-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Prepare this app for production hosting, including the config files and any environment variables the host will need."
+  },
+  {
+    "categoryId": "email",
+    "promptId": "email-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "The app needs to send a welcome email when someone signs up. Wire up email sending and add the template."
+  },
+  {
+    "categoryId": "email",
+    "promptId": "email-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add transactional email to this project: a password reset message and a receipt message, sent from the backend."
+  },
+  {
+    "categoryId": "email",
+    "promptId": "email-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I need to email users from this app. Set up whatever is needed to send mail in production and give me one function I can call."
+  },
+  {
+    "categoryId": "payments",
+    "promptId": "payments-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add paid subscriptions to this app. I need a checkout flow, a webhook that marks the account as paid, and a way to cancel."
+  },
+  {
+    "categoryId": "payments",
+    "promptId": "payments-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I want to charge users for a monthly plan. Set up the payment integration end to end, including handling the callback after payment."
+  },
+  {
+    "categoryId": "payments",
+    "promptId": "payments-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Wire up billing for this project so a visitor can buy a plan and the backend learns about it."
+  },
+  {
+    "categoryId": "jobs",
+    "promptId": "jobs-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "This endpoint does slow work inline and times out. Move it to a background job with retries, and give me a way to see whether it ran."
+  },
+  {
+    "categoryId": "jobs",
+    "promptId": "jobs-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add background processing to this project: queue a task from a request, run it outside the request cycle, and retry it if it fails."
+  },
+  {
+    "categoryId": "jobs",
+    "promptId": "jobs-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I need deferred and scheduled work here. Set up the job runner and add one recurring task plus one on-demand task."
+  },
+  {
+    "categoryId": "caching",
+    "promptId": "caching-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "This route recomputes an expensive result on every request. Add caching with a sensible expiry and a way to invalidate it."
+  },
+  {
+    "categoryId": "caching",
+    "promptId": "caching-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add a cache layer to this project so repeated reads are cheap. It should survive a process restart."
+  },
+  {
+    "categoryId": "caching",
+    "promptId": "caching-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Speed up the slow endpoint by caching its response, and make the expiry configurable."
+  },
+  {
+    "categoryId": "storage",
+    "promptId": "storage-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Let users upload an avatar image. Store the file somewhere durable and save the URL on the user record."
+  },
+  {
+    "categoryId": "storage",
+    "promptId": "storage-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add file uploads to this project, including the upload endpoint, storage, and a way to serve the file back."
+  },
+  {
+    "categoryId": "storage",
+    "promptId": "storage-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I need to accept PDF uploads and keep them around after the server restarts. Set up storage and the upload flow."
+  },
+  {
+    "categoryId": "observability",
+    "promptId": "observability-p1",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "I want to know when this app throws in production. Set up error reporting with stack traces and a test error I can trigger."
+  },
+  {
+    "categoryId": "observability",
+    "promptId": "observability-p2",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Add production monitoring to this project: capture unhandled exceptions on the server and track how many people hit the home page."
+  },
+  {
+    "categoryId": "observability",
+    "promptId": "observability-p3",
+    "stacks": [
+      "nextjs-ts",
+      "python-fastapi"
+    ],
+    "text": "Give this app visibility once it is live. I need crash reports and basic usage numbers."
+  }
+]

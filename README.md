@@ -13,6 +13,12 @@ which tools does Claude Code install when the prompt names no tool. this repo is
 | `data/picks-summary.csv` | picked counts per tool per category, all three models pooled |
 | `data/categories/*.json` | per category reports: prompts, starters, picks per model, built its own counts |
 | `data/manifest.json` | run metadata: models, dates, budget, totals |
+| `data/prompts.json` | the 30 prompts, exact wording, one per `promptId` |
+| `data/prompts.csv` | the same prompts, one row each |
+
+## prompts
+
+`data/prompts.json` and `data/prompts.csv` hold every task prompt the harness sent, word for word. `promptId` in `runs.json`, `runs.csv` and `data/agents/` maps to `promptId` here. 10 categories, 3 wordings each, 30 total. every prompt ran on both starters (`stacks`).
 
 ## a few numbers
 

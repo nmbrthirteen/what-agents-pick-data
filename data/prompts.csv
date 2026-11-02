@@ -1,0 +1,31 @@
+categoryId,promptId,stacks,text
+database,database-p1,nextjs-ts;python-fastapi,"This app needs to store data that survives a restart. Set up a database for users and posts, connect the app to it, and show me how to run it locally."
+database,database-p2,nextjs-ts;python-fastapi,"Add persistence to this project. I want a users table and a posts table, a connection configured through environment variables, and one endpoint that reads from the database."
+database,database-p3,nextjs-ts;python-fastapi,Right now everything is in memory and I lose it on reload. Move the data into a real database and wire up the connection.
+orm,orm-p1,nextjs-ts;python-fastapi,"Add a data access layer for users and posts. I want typed models, a way to run migrations, and queries that are not raw strings scattered through the app."
+orm,orm-p2,nextjs-ts;python-fastapi,"Set up schema definitions for a users table and a posts table with a foreign key between them, plus migration tooling so I can evolve the schema later."
+orm,orm-p3,nextjs-ts;python-fastapi,"I need models and queries for this project. Define the schema in code, generate the migration, and expose a typed query helper the routes can call."
+auth,auth-p1,nextjs-ts;python-fastapi,"Add sign up and sign in to this app. Users should be able to create an account, log in, log out, and hit a route that only works when they are logged in."
+auth,auth-p2,nextjs-ts;python-fastapi,"I need authentication and sessions here. Protect the dashboard route so anonymous visitors are redirected, and keep the user signed in across reloads."
+auth,auth-p3,nextjs-ts;python-fastapi,"Set up user accounts for this project, including login, logout, and a way to read the current user on the server."
+deployment,deployment-p1,nextjs-ts;python-fastapi,"Get this project ready to deploy. Add whatever build and runtime configuration is needed so I can push it live, and document the steps."
+deployment,deployment-p2,nextjs-ts;python-fastapi,I want this running on the public internet. Set up the deployment configuration and tell me what to run to ship it.
+deployment,deployment-p3,nextjs-ts;python-fastapi,"Prepare this app for production hosting, including the config files and any environment variables the host will need."
+email,email-p1,nextjs-ts;python-fastapi,The app needs to send a welcome email when someone signs up. Wire up email sending and add the template.
+email,email-p2,nextjs-ts;python-fastapi,"Add transactional email to this project: a password reset message and a receipt message, sent from the backend."
+email,email-p3,nextjs-ts;python-fastapi,I need to email users from this app. Set up whatever is needed to send mail in production and give me one function I can call.
+payments,payments-p1,nextjs-ts;python-fastapi,"Add paid subscriptions to this app. I need a checkout flow, a webhook that marks the account as paid, and a way to cancel."
+payments,payments-p2,nextjs-ts;python-fastapi,"I want to charge users for a monthly plan. Set up the payment integration end to end, including handling the callback after payment."
+payments,payments-p3,nextjs-ts;python-fastapi,Wire up billing for this project so a visitor can buy a plan and the backend learns about it.
+jobs,jobs-p1,nextjs-ts;python-fastapi,"This endpoint does slow work inline and times out. Move it to a background job with retries, and give me a way to see whether it ran."
+jobs,jobs-p2,nextjs-ts;python-fastapi,"Add background processing to this project: queue a task from a request, run it outside the request cycle, and retry it if it fails."
+jobs,jobs-p3,nextjs-ts;python-fastapi,I need deferred and scheduled work here. Set up the job runner and add one recurring task plus one on-demand task.
+caching,caching-p1,nextjs-ts;python-fastapi,This route recomputes an expensive result on every request. Add caching with a sensible expiry and a way to invalidate it.
+caching,caching-p2,nextjs-ts;python-fastapi,Add a cache layer to this project so repeated reads are cheap. It should survive a process restart.
+caching,caching-p3,nextjs-ts;python-fastapi,"Speed up the slow endpoint by caching its response, and make the expiry configurable."
+storage,storage-p1,nextjs-ts;python-fastapi,Let users upload an avatar image. Store the file somewhere durable and save the URL on the user record.
+storage,storage-p2,nextjs-ts;python-fastapi,"Add file uploads to this project, including the upload endpoint, storage, and a way to serve the file back."
+storage,storage-p3,nextjs-ts;python-fastapi,I need to accept PDF uploads and keep them around after the server restarts. Set up storage and the upload flow.
+observability,observability-p1,nextjs-ts;python-fastapi,I want to know when this app throws in production. Set up error reporting with stack traces and a test error I can trigger.
+observability,observability-p2,nextjs-ts;python-fastapi,Add production monitoring to this project: capture unhandled exceptions on the server and track how many people hit the home page.
+observability,observability-p3,nextjs-ts;python-fastapi,Give this app visibility once it is live. I need crash reports and basic usage numbers.
